@@ -2,6 +2,8 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import authRoutes from './src/modules/auth/auth.route.js';
+import tourRoutes from './src/modules/tour/tour.route.js';
+import errorMiddleware from './middleware/error.middleware.js';
 
 dotenv.config();
 
@@ -17,6 +19,10 @@ app.get("/running", (req, res) => {
 });
 
 app.use("/api/v1/auth", authRoutes);
+
+app.use("/api/v1/tour", tourRoutes);
+
+app.use(errorMiddleware);
 
 
 export default app;
