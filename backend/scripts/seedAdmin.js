@@ -1,7 +1,8 @@
 import "dotenv/config";
 import mongoose from "mongoose";
-import Admin from "../models/admin.model.js";
+import Admin from "../src/modules/auth/auth.model.js";
 import {connectDB} from "../src/config/db.js";
+import bcrypt from "bcryptjs";
 
 const seedAdmin = async () => {
   try {
@@ -13,9 +14,12 @@ const seedAdmin = async () => {
       process.exit(0);
     }
 
+    const hashPassword = await bcrypt.hash(process.env.ADMIN_PASSWORD, 10)
+
     const admin = await Admin.create({
-      email: process.env.EMAIL,
-      password: process.env.PASSWORD,
+      email: process.env.ADMIN_EMAIL,
+      password: hashPassword,
+      phoneNumber: process.env.ADMIN_PHONE_NUMBER,
     });
 
     console.log("Admin created successfully:", admin.email);

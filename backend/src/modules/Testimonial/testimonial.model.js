@@ -25,4 +25,4 @@ const testimonialSchema = new mongoose.Schema(
   },
 );
 
-export default model("Testimonial", testimonialSchema);
+export default  mongoose.model("Testimonial", testimonialSchema);

@@ -12,7 +12,7 @@ const adminSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  phone_number: {
+  phoneNumber: {
     type: Number,
     required: true,
   },
@@ -30,4 +30,4 @@ const adminSchema = new mongoose.Schema({
 });
 
 
-export default model("Admin", adminSchema)
+export default mongoose.model("Admin", adminSchema)

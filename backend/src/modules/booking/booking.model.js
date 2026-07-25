@@ -48,4 +48,4 @@ const bookingSchema = new mongoose.Schema(
 );
 
 
-export default model("Booking",bookingSchema)
+export default  mongoose.model("Booking",bookingSchema)

@@ -67,4 +67,4 @@ const packageSchema = new mongoose.Schema(
   },
 );
 
-export default model("Package", packageSchema);
+export default  mongoose.model("Package", packageSchema);
