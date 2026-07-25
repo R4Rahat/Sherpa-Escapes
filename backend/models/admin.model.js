@@ -18,4 +18,4 @@ adminSchema.methods.comparePassword = async function (candidatePassword) {
   return bcrypt.compare(candidatePassword, this.password);
 };
 
-export default model("Admin", adminSchema);
+// export default model("Admin", adminSchema);

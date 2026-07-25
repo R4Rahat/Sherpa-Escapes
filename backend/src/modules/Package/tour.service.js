@@ -1,4 +1,4 @@
-import Tour from "./tour.model.js";
+import Tour from "./package.model.js";
 import ApiError from "../../utils/apiError.js";
 
 // public
