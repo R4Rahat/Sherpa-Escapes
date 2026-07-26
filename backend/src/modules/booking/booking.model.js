@@ -20,15 +20,15 @@ const bookingSchema = new mongoose.Schema(
       required: true,
     },
     numberOfPerson: {
-      types: Number,
+      type: Number,
       default: 1,
     },
     numberOfAdult: {
-      types: Number,
+      type: Number,
       default: 1,
     },
     numberOfChildren: {
-      types: Number,
+      type: Number,
       default: 0,
     },
     bookingStatus: {

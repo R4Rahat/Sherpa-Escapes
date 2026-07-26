@@ -1,10 +1,14 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
+import cookieParser from "cookie-parser";
+
 import authRoutes from "./src/modules/Auth/auth.route.js";
 import tourRoutes from "./src/modules/Package/package.route.js";
+import bookingRoutes from "./src/modules/Booking/booking.route.js";
+
 import errorMiddleware from "./middleware/error.middleware.js";
-import cookieParser from "cookie-parser";
+
 
 dotenv.config();
 
@@ -21,6 +25,8 @@ app.get("/running", (req, res) => {
 app.use("/api/v1/auth", authRoutes);
 
 app.use("/api/v1/packages", tourRoutes);
+
+app.use("/api/v1/bookings", bookingRoutes);
 
 app.use(errorMiddleware);
 
