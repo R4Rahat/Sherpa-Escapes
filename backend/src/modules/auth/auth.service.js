@@ -4,7 +4,7 @@ import ApiError from "../../../utils/apiError.js";
 import bcrypt from "bcryptjs";
 
 
-const generateToken = (admin) => {
+export const generateToken = (admin) => {
     return jwt.sign(
       {
         id: admin._id,
@@ -21,6 +21,7 @@ const generateToken = (admin) => {
 export const login = async (email, password) => {
     const admin = await Admin.findOne({ email: email.toLowerCase() });
     if(!admin) throw new ApiError(404, "Invalid email or password");
+    console.log(admin);
 
     // const isMatch = admin.comparePassword(password);
     const isMatch = await bcrypt.compare(password, admin.password);

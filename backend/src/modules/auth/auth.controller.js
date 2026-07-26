@@ -7,8 +7,8 @@ import apiResponse from "../../../utils/apiResponse.js";
 
 export const loginController = async (req, res, next) => {
     try{
-       const error =  validationResult(req);
-       if (!error.isEmpty()) {
+       const errors =  validationResult(req);
+       if (!errors.isEmpty()) {
          throw new ApiError(400, errors.array()[0].msg);
        }
 
@@ -16,7 +16,16 @@ export const loginController = async (req, res, next) => {
        
        const result = await login(email, password);
 
-       apiResponse(res, 200, "Login successful", result);
+       const {token, admin} = result;
+
+       res.cookie("token", token, {
+         httpOnly: true,
+         secure: process.env.NODE_ENV === "production",
+         sameSite: "strict",
+         maxAge: 7 * 24 * 60 * 60 * 1000
+       });
+
+       apiResponse(res, 200, "Login successful", admin);
     }catch(error){
         // return errorMiddleware(error, req, res, next);
         next(error);
