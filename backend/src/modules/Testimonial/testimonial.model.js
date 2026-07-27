@@ -6,9 +6,11 @@ const testimonialSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    designation: String,
-    description: String,
-    image: String,
+    email: String,
+    image: {
+      type: String,
+      default: "",
+    },
     review: {
       type: String,
       required: true,
@@ -19,10 +21,14 @@ const testimonialSchema = new mongoose.Schema(
       min: 1,
       max: 5,
     },
+    isDisplay: {
+      type: Boolean,
+      default: false,
+    },
   },
   {
     timestamps: true,
   },
 );
 
-export default  mongoose.model("Testimonial", testimonialSchema);
+export default mongoose.model("Testimonial", testimonialSchema);

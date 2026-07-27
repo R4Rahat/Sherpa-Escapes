@@ -8,6 +8,7 @@ import tourRoutes from "./src/modules/Package/package.route.js";
 import bookingRoutes from "./src/modules/Booking/booking.route.js";
 import blogRoutes from "./src/modules/Blog/blog.routes.js";
 import enquiryRoutes from "./src/modules/Enquiry/enquiry.route.js";
+import testimonialRoutes from "./src/modules/Testimonial/testimonial.route.js"
 
 import errorMiddleware from "./middleware/error.middleware.js";
 
@@ -33,6 +34,8 @@ app.use("/api/v1/bookings", bookingRoutes);
 app.use("/api/v1/blogs", blogRoutes);
 
 app.use("/api/v1/enquires", enquiryRoutes);
+
+app.use("/api/v1/testimonials", testimonialRoutes)
 
 app.use(errorMiddleware);
 
