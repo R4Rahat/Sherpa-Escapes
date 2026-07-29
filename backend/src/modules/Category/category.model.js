@@ -6,11 +6,6 @@ const categorySchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    slug: {
-      type: String,
-      required: true,
-      unique: true,
-    },
     icon: String,
   },
   {
@@ -18,4 +13,4 @@ const categorySchema = new mongoose.Schema(
   },
 );
 
-export default  mongoose.model("Category", categorySchema);
+export default mongoose.model("Category", categorySchema);

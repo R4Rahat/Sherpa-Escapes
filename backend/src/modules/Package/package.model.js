@@ -19,10 +19,10 @@ const packageSchema = new mongoose.Schema(
     duration: String,
     price: Number,
     discountPrice: Number,
-    categoryId: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Category",
-    },
+    // categoryId: {
+    //   type: mongoose.Schema.Types.ObjectId,
+    //   ref: "Category",
+    // },
     difficulty: String,
     maxPeople: Number,
     featured: {
@@ -67,4 +67,4 @@ const packageSchema = new mongoose.Schema(
   },
 );
 
-export default  mongoose.model("Package", packageSchema);
+export default mongoose.model("Package", packageSchema);
