@@ -13,9 +13,9 @@ const faqSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
-    isActive: {
+    isDisplay: {
       type: Boolean,
-      default: true,
+      default: false,
     },
   },
   { timestamps: true },
