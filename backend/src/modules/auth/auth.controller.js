@@ -25,10 +25,32 @@ export const loginController = async (req, res, next) => {
          maxAge: 7 * 24 * 60 * 60 * 1000
        });
 
-       apiResponse(res, 200, "Login successful", admin);
+       apiResponse(res, 200, "Login successful", { admin, token });
     }catch(error){
         // return errorMiddleware(error, req, res, next);
         next(error);
     }
 }
+
+export const logoutController = async (req, res, next) => {
+  try {
+    res.clearCookie("token", {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "strict",
+    });
+    apiResponse(res, 200, "Logout successful");
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const getMeController = async (req, res, next) => {
+  try {
+    apiResponse(res, 200, "Admin profile fetched", req.user);
+  } catch (error) {
+    next(error);
+  }
+};
+
 

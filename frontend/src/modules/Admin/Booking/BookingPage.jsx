@@ -1,9 +1,22 @@
-
-
 export default function BookingPage() {
-    return (
+  return (
+    <div className="space-y-6">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-            <h1>Booking</h1>
+          <h1 className="text-2xl font-bold tracking-tight text-slate-900">
+            Booking
+          </h1>
+          <p className="text-sm text-slate-500 mt-1">
+            Track and manage bookings and reservations.
+          </p>
         </div>
-    )
+      </div>
+
+      <div className="min-h-[460px] rounded-2xl border border-slate-200/80 bg-white p-6 shadow-xs flex items-center justify-center">
+        <div className="text-center text-slate-400">
+          <p className="text-sm font-medium">Booking content will appear here</p>
+        </div>
+      </div>
+    </div>
+  );
 }

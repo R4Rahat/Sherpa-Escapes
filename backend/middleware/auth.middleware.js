@@ -3,9 +3,8 @@ import ApiError from "../utils/apiError.js";
 
 const authMiddleware = (req, res, next) => {
   try {
-    const token = req.cookies.token;
-    console.log("Cookies:", req.cookies);
-    console.log("Header:", req.headers.cookie);
+    // With cookie-parser enabled in Express, read directly from req.cookies
+    const token = req.cookies?.token;
 
     if (!token) {
       throw new ApiError(401, "Unauthorized - No token provided");
