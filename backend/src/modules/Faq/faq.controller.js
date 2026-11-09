@@ -7,6 +7,7 @@ import {
   updateFaq,
 } from "./faq.service.js";
 import apiResponse from "../../../utils/apiResponse.js";
+import ApiError from "../../../utils/apiError.js";
 import mongoose from "mongoose";
 
 export const getPublicFaqController = async (req, res, next) => {
@@ -52,6 +53,7 @@ export const updateFaqController = async (req, res, next) => {
     if (!mongoose.Types.ObjectId.isValid(req.params.id))
       return next(new ApiError(400, "Invalid id"));
     const faq = await updateFaq(req.params.id, req.body);
+    apiResponse(res, 200, "Faq updated successfully", faq);
   } catch (error) {
     next(error);
   }

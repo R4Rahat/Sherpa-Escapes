@@ -13,10 +13,6 @@ const faqSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
-    isDisplay: {
-      type: Boolean,
-      default: false,
-    },
   },
   { timestamps: true },
 );

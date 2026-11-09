@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Outlet } from "react-router-dom";
+import { Toaster } from "sonner";
 import Sidebar from "../modules/Admin/components/Sidebar";
 import Header from "../modules/Admin/components/Header";
 
@@ -8,6 +9,7 @@ export default function AdminLayout() {
 
   return (
     <div className="min-h-screen bg-[#F8F9FA] text-slate-900 flex">
+      <Toaster richColors position="top-right" closeButton />
       {/* Sidebar (Responsive drawer for mobile, fixed sidebar for desktop) */}
       <Sidebar open={sidebarOpen} setOpen={setSidebarOpen} />
 

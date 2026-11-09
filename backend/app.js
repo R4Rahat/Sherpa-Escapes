@@ -44,6 +44,7 @@ app.use("/api/v1/bookings", bookingRoutes);
 app.use("/api/v1/blogs", blogRoutes);
 
 app.use("/api/v1/enquires", enquiryRoutes);
+app.use("/api/v1/enquiries", enquiryRoutes);
 
 app.use("/api/v1/testimonials", testimonialRoutes);
 

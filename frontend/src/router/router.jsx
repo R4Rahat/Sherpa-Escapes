@@ -2,6 +2,10 @@ import { createBrowserRouter } from "react-router-dom";
 import DashboardPage from "../modules/Admin/Dashboard/DashboardPage";
 import PackagePage from "../modules/Admin/Package/PackagePage";
 import BookingPage from "../modules/Admin/Booking/BookingPage";
+import EnquiryPage from "../modules/Admin/Enquiry/EnquiryPage";
+import FaqPage from "../modules/Admin/Faq/FaqPage";
+import TestimonialPage from "../modules/Admin/Testimonial/TestimonialPage";
+import BlogPage from "../modules/Admin/blog/BlogPage";
 import BlankPage from "../modules/Admin/components/BlankPage";
 import Login from "../components/Login";
 import HomePage from "../modules/Public/Home/HomePage";
@@ -49,19 +53,19 @@ export const router = createBrowserRouter([
               },
               {
                 path: "enquiries",
-                element: <BlankPage title="Enquiry" />,
+                element: <EnquiryPage />,
               },
               {
                 path: "faqs",
-                element: <BlankPage title="Faq" />,
+                element: <FaqPage />,
               },
               {
                 path: "testimonials",
-                element: <BlankPage title="Testimonial" />,
+                element: <TestimonialPage />,
               },
               {
                 path: "blogs",
-                element: <BlankPage title="Blogs" />,
+                element: <BlogPage />,
               },
             ],
           },

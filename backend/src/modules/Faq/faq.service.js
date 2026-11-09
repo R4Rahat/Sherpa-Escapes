@@ -24,13 +24,15 @@ export const createFaq = async (data) => {
 
 export const updateFaq = async (id, data) => {
     const faq = await Faq.findByIdAndUpdate(id, data, {
-        returnDocument:true
-    })
-    if(!faq) throw new ApiError(404, "Faq not found")
-    return faq
+        new: true,
+        runValidators: true,
+    });
+    if(!faq) throw new ApiError(404, "Faq not found");
+    return faq;
 }
 
 export const deleteFaq = async (id) => {
     const faq = await Faq.findByIdAndDelete(id);
-    if(!faq) throw new ApiError(404, "Faq not found")
+    if(!faq) throw new ApiError(404, "Faq not found");
+    return faq;
 }
